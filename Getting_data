@@ -1,0 +1,55 @@
+'''
+f = open('name', 'a')
+f.write('We are learning data science')
+f.close()
+'''
+'''
+f = open('name','r')
+print(f.read())
+f.close()
+'''
+'''
+with open('name') as h:
+    print(h.read())
+#CSV(Comma Separated Values) Module:
+#1)csv.reader()
+#2)csv.DictReader()
+#3)csv.writer()'''
+#1
+'''
+import csv
+with open('stock78') as f:
+    tab_reader= csv.reader(f, delimiter = '\@')
+    print(tab_reader)
+    for line in tab_reader:
+        print(line)
+'''
+#1
+'''
+import csv
+with open('stock78') as f:
+    tab_reader= csv.reader(f, delimiter = '\t')
+    print(list(tab_reader))
+'''
+#2
+'''
+import csv
+with open('stock78') as f:
+    colon_reader=csv.DictReader(f, delimiter='\t')
+    print(list(colon_reader))
+'''
+#or
+'''
+import csv
+with open('stock78') as f:
+    colon_reader=csv.DictReader(f, delimiter='\t')
+    for row in colon_reader:
+        print(row)
+'''
+#3
+todays_prices={'AAPL':100, 'SBI':90, 'HDFC':100}
+import csv
+with open('stock77','w') as f:
+    csw_writer = csv.writer(f, delimiter='\t')
+    for symbol, price in todays_prices.items():
+        csw_writer.writerow([symbol,price])
